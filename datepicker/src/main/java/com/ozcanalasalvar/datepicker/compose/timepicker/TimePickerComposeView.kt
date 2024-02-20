@@ -2,6 +2,7 @@ package com.ozcanalasalvar.datepicker.compose.timepicker
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.platform.AbstractComposeView
@@ -56,6 +57,7 @@ class TimePickerComposeView @JvmOverloads constructor(
     var startTime: Time
         get() = startTimeState.value
         set(value) {
+            Log.d("mytag","startTime setter: $value")
             startTimeState.value = value
         }
 

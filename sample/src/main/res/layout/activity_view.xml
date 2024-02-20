@@ -12,32 +12,33 @@
         android:orientation="vertical">
 
 
-        <com.ozcanalasalvar.datepicker.view.datepicker.DatePicker
-            android:id="@+id/datepicker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:darkModeEnabled="true"
-            app:offset="3"
-            app:textSize="19" />
+<!--        <com.ozcanalasalvar.datepicker.view.datepicker.DatePicker-->
+<!--            android:id="@+id/datepicker"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:darkModeEnabled="true"-->
+<!--            app:offset="3"-->
+<!--            app:textSize="19" />-->
 
-        <TextView
-            android:id="@+id/text_date"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_bg"
-            android:padding="5dp"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="17sp"
-            android:textStyle="normal" />
+<!--        <TextView-->
+<!--            android:id="@+id/text_date"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:background="@drawable/custom_bg"-->
+<!--            android:padding="5dp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="17sp"-->
+<!--            android:textStyle="normal" />-->
 
 
         <com.ozcanalasalvar.datepicker.view.timepicker.TimePicker
             android:id="@+id/timepicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
             app:darkModeEnabled="true"
             app:is24HourViewEnabled="false"
@@ -58,28 +59,28 @@
             android:textStyle="normal" />
 
 
-        <com.ozcanalasalvar.datepicker.view.timepicker.TimePicker
-            android:id="@+id/timepicker_24"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:darkModeEnabled="true"
-            app:is24HourViewEnabled="true"
-            app:offset="2"
-            app:textSize="17" />
+<!--        <com.ozcanalasalvar.datepicker.view.timepicker.TimePicker-->
+<!--            android:id="@+id/timepicker_24"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            app:darkModeEnabled="true"-->
+<!--            app:is24HourViewEnabled="true"-->
+<!--            app:offset="2"-->
+<!--            app:textSize="17" />-->
 
-        <TextView
-            android:id="@+id/text_time_24"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_bg"
-            android:padding="5dp"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="17sp"
-            android:textStyle="normal" />
+<!--        <TextView-->
+<!--            android:id="@+id/text_time_24"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:background="@drawable/custom_bg"-->
+<!--            android:padding="5dp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="17sp"-->
+<!--            android:textStyle="normal" />-->
 
 
         <LinearLayout

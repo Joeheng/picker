@@ -1,5 +1,6 @@
 package com.ozcanalasalvar.datepicker.compose.timepicker
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -31,8 +32,9 @@ import com.ozcanalasalvar.datepicker.ui.theme.colorLightPrimary
 import com.ozcanalasalvar.datepicker.ui.theme.colorLightTextPrimary
 import com.ozcanalasalvar.datepicker.ui.theme.lightPallet
 import com.ozcanalasalvar.datepicker.utils.DateUtils
-import com.ozcanalasalvar.wheelview.WheelView
+import com.ozcanalasalvar.wheelview.Inter
 import com.ozcanalasalvar.wheelview.SelectorOptions
+import com.ozcanalasalvar.wheelview.WheelView
 
 
 @Composable
@@ -65,6 +67,7 @@ fun WheelTimePicker(
     val fontSize = maxOf(13, minOf(19, textSize))
 
     LaunchedEffect(selectedTime) {
+        Log.d("mytag", "selectedTime: $selectedTime")
         onTimeChanged(selectedTime.hour, selectedTime.minute, selectedTime.format)
     }
 
@@ -76,7 +79,7 @@ fun WheelTimePicker(
         contentAlignment = Alignment.Center
     ) {
 
-        val height=( fontSize + 10) .dp
+        val height = (fontSize + 10).dp
 
 
         Row(
@@ -91,7 +94,10 @@ fun WheelTimePicker(
                 selection = 0,
                 itemCount = hours.size,
                 rowOffset = offset,
-                selectorOption = SelectorOptions().copy(selectEffectEnabled = selectorEffectEnabled, enabled = false),
+                selectorOption = SelectorOptions().copy(
+                    selectEffectEnabled = selectorEffectEnabled,
+                    enabled = false
+                ),
                 onFocusItem = {
                     selectedTime = selectedTime.copy(hour = hours[it])
                 },
@@ -100,6 +106,7 @@ fun WheelTimePicker(
                         text = if (hours[it] < 10) "0${hours[it]}" else "${hours[it]}",
                         textAlign = TextAlign.Center,
                         modifier = Modifier.width(50.dp),
+                        fontFamily = Inter,
                         fontSize = fontSize.sp,
                         color = if (darkModeEnabled) PickerTheme.colors.textPrimary else colorLightTextPrimary
                     )
@@ -111,7 +118,10 @@ fun WheelTimePicker(
                 selection = 0,
                 itemCount = minutes.size,
                 rowOffset = offset,
-                selectorOption = SelectorOptions().copy(selectEffectEnabled = selectorEffectEnabled, enabled = false),
+                selectorOption = SelectorOptions().copy(
+                    selectEffectEnabled = selectorEffectEnabled,
+                    enabled = false
+                ),
                 onFocusItem = {
                     selectedTime = selectedTime.copy(minute = minutes[it])
                 },
@@ -119,6 +129,7 @@ fun WheelTimePicker(
                     Text(
                         text = if (minutes[it] < 10) "0${minutes[it]}" else "${minutes[it]}",
                         textAlign = TextAlign.Center,
+                        fontFamily = Inter,
                         modifier = Modifier.width(100.dp),
                         fontSize = fontSize.sp,
                         color = if (darkModeEnabled) PickerTheme.colors.textPrimary else colorLightTextPrimary
@@ -132,7 +143,10 @@ fun WheelTimePicker(
                     itemCount = formats.size,
                     rowOffset = offset,
                     isEndless = false,
-                    selectorOption = SelectorOptions().copy(selectEffectEnabled = selectorEffectEnabled, enabled = false),
+                    selectorOption = SelectorOptions().copy(
+                        selectEffectEnabled = selectorEffectEnabled,
+                        enabled = false
+                    ),
                     onFocusItem = {
                         selectedTime = selectedTime.copy(format = formats[it])
                     },
@@ -140,6 +154,7 @@ fun WheelTimePicker(
                         Text(
                             text = formats[it].toString(),
                             textAlign = TextAlign.Center,
+                            fontFamily = Inter,
                             modifier = Modifier.width(100.dp),
                             fontSize = fontSize.sp,
                             color = if (darkModeEnabled) PickerTheme.colors.textPrimary else colorLightTextPrimary
@@ -159,7 +174,7 @@ fun WheelTimePicker(
                 ),
         ) {}
 
-        SelectorView(darkModeEnabled= darkModeEnabled, offset = offset)
+        SelectorView(darkModeEnabled = darkModeEnabled, offset = offset)
 
     }
 }
