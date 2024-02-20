@@ -54,7 +54,7 @@ fun WheelTimePicker(
 
 
     val hours = mutableListOf<Int>().apply {
-        for (hour in 0..if (timeFormat == TimeFormat.CLOCK_24H) 23 else 12) {
+        for (hour in 1..if (timeFormat == TimeFormat.CLOCK_24H) 23 else 12) {
             add(hour)
         }
     }
@@ -65,6 +65,19 @@ fun WheelTimePicker(
         }
     }
     val fontSize = maxOf(13, minOf(19, textSize))
+
+    val initialHourSelection = when (timeFormat) {
+        TimeFormat.CLOCK_24H -> hours.indexOf(selectedTime.hour)
+        TimeFormat.CLOCK_12H -> {
+            val hourIn12Format = if (selectedTime.hour % 12 == 0) 12 else selectedTime.hour % 12
+            hours.indexOf(hourIn12Format)
+        }
+        else -> 0 // Default or error case
+    }
+
+    val initialMinuteSelection = minutes.indexOf(selectedTime.minute)
+
+    val initialFormatSelection = if (selectedTime.format == "AM") 0 else 1
 
     LaunchedEffect(selectedTime) {
         Log.d("mytag", "selectedTime: $selectedTime")
@@ -91,7 +104,7 @@ fun WheelTimePicker(
 
             WheelView(modifier = Modifier.weight(3f),
                 itemSize = DpSize(150.dp, height),
-                selection = 0,
+                selection = initialHourSelection,
                 itemCount = hours.size,
                 rowOffset = offset,
                 selectorOption = SelectorOptions().copy(
@@ -100,6 +113,7 @@ fun WheelTimePicker(
                 ),
                 onFocusItem = {
                     selectedTime = selectedTime.copy(hour = hours[it])
+
                 },
                 content = {
                     Text(
@@ -115,7 +129,7 @@ fun WheelTimePicker(
 
             WheelView(modifier = Modifier.weight(3f),
                 itemSize = DpSize(150.dp, height),
-                selection = 0,
+                selection = initialMinuteSelection,
                 itemCount = minutes.size,
                 rowOffset = offset,
                 selectorOption = SelectorOptions().copy(
@@ -139,7 +153,7 @@ fun WheelTimePicker(
             if (timeFormat == TimeFormat.CLOCK_12H) {
                 WheelView(modifier = Modifier.weight(2f),
                     itemSize = DpSize(150.dp, height),
-                    selection = 0,
+                    selection = initialFormatSelection,
                     itemCount = formats.size,
                     rowOffset = offset,
                     isEndless = false,

@@ -9,6 +9,7 @@ import androidx.compose.ui.platform.AbstractComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import com.google.android.material.timepicker.TimeFormat
 import com.ozcanalasalvar.datepicker.model.Time
+import com.ozcanalasalvar.datepicker.utils.DateUtils
 import com.ozcanalasalvar.datepicker.view.timepicker.TimePicker
 
 class TimePickerComposeView @JvmOverloads constructor(
@@ -22,7 +23,7 @@ class TimePickerComposeView @JvmOverloads constructor(
     private val textSizeState = mutableStateOf(17)
     private val darkModeEnabledState = mutableStateOf(true)
     private val timeFormatState = mutableStateOf(TimeFormat.CLOCK_24H)
-    private val startTimeState = mutableStateOf(Time(0, 0, "PM"))
+    private val startTimeState = mutableStateOf(Time(DateUtils.getCurrentHour(), DateUtils.getCurrentMinute()))
 
 
     var offset: Int
