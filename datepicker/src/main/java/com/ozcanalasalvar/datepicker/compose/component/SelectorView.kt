@@ -37,9 +37,9 @@ fun SelectorView(modifier: Modifier = Modifier, darkModeEnabled: Boolean, offset
                     shape = RoundedCornerShape(4.dp),
                     brush = Brush.linearGradient(
                         listOf(
-                            Color(0x20714FFF),
-                            Color(0x51714FFF),
-                            Color(0x20714FFF),
+                            Color(0x21F2F2F2),
+                            Color(0x52F2F2F2),
+                            Color(0x21F2F2F2),
                         )
                     )
                 ),
