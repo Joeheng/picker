@@ -45,7 +45,11 @@ publishing {
             groupId 'com.ozcanalasalvar'
             artifactId 'wheelview'
             version '1.0.0-alpha08'
-            artifact("$buildDir/outputs/aar/wheelview-release.aar")
+
+            afterEvaluate {
+                from components.release
+            }
+//            artifact("$buildDir/outputs/aar/wheelview-release.aar")
         }
     }
 }
