@@ -77,7 +77,12 @@ fun WheelTimePicker(
 
     val initialMinuteSelection = minutes.indexOf(selectedTime.minute)
 
-    val initialFormatSelection = if (selectedTime.format == "AM") 0 else 1
+    // setTime(hour, minute) leaves format null — derive AM/PM from the 24h hour then.
+    val initialFormatSelection = when (selectedTime.format) {
+        "AM" -> 0
+        "PM" -> 1
+        else -> if (selectedTime.hour < 12) 0 else 1
+    }
 
     LaunchedEffect(selectedTime) {
         Log.d("mytag", "selectedTime: $selectedTime")
